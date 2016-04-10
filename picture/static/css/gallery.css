@@ -1,0 +1,32 @@
+.picture-app-picture-wrapper {
+	position: relative;
+	float: left;
+	width: 200px;
+	height: 200px;
+}
+
+.picture-app-picture-wrapper img {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.picture-app-picture-wrapper .picture-app-meta {
+	position:absolute;
+	bottom:0;	
+}
+
+.picture-app-picture-wrapper .picture-app-meta-author ,
+.picture-app-picture-wrapper .picture-app-meta-date ,
+.picture-app-picture-wrapper .picture-app-meta-desc {
+	display: none;
+}
+
+.picture-app-picture-wrapper:hover .picture-app-meta-author ,
+.picture-app-picture-wrapper:hover .picture-app-meta-date ,
+.picture-app-picture-wrapper:hover .picture-app-meta-desc {
+	display: block;
+	background: black;
+	opacity: 0.7;
+	color: green;
+	width: 200px;
+}

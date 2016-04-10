@@ -1,0 +1,28 @@
+.picture-app-carousel {
+	overflow: hidden;
+	margin: auto;
+}
+
+.picture-app-effect-s .picture-app-carousel-inner {
+	position: relative;
+	width: 30000px;
+}
+
+.picture-app-effect-s .carousel-picture-wrapper {
+	float: left;
+}
+.picture-app-effect-se .carousel-picture-wrapper,
+.picture-app-effect-fi .carousel-picture-wrapper,
+.picture-app-effect-fo .carousel-picture-wrapper {
+	display: none;
+}
+
+.picture-app-effect-se .carousel-picture-wrapper.carousel-show,
+.picture-app-effect-fi .carousel-picture-wrapper.carousel-show,
+.picture-app-effect-fo .carousel-picture-wrapper.carousel-show {
+	display: block;
+}
+
+/*.picture-app-effect-s .carousel-picture-wrapper {
+	width: 630px;
+}*/

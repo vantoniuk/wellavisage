@@ -1,0 +1,15 @@
+{% load sekizai_tags %}
+{% load staticfiles %} 
+{% load static %}
+
+{% addtoblock "js" %}<script type="text/javascript" src="{% static "js/picture.js" %}"></script>{% endaddtoblock %}
+{% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{% static "css/gallery.css" %}"/>{% endaddtoblock %}
+
+{% if picture_config %}
+	<div class='picture-plugin'>
+		{% url 'pictures:views-list' picture_config.album.id 1 picture_config.page_size as picture_list_url %}
+		<a class="picture-app-list" href="{{picture_list_url}}" id="{{picture_config.album.id}}">
+			<img src="{% get_media_prefix %}{{picture_config.album.thumbnail.pic_file}}"/>
+		</a>
+	</div>	
+{% endif %}

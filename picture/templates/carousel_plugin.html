@@ -1,0 +1,43 @@
+{% load sekizai_tags %}
+{% load staticfiles %} 
+{% load static %}
+
+{% addtoblock "js" %}<script type="text/javascript" src="{% static "js/carousel.js" %}"></script>{% endaddtoblock %}
+{% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{% static "css/carousel.css" %}"/>{% endaddtoblock %}
+{% addtoblock "js" %}
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		var carousel_config = {
+			'interval': {{carousel_config.interval}},
+			'height': {{carousel_config.height}},
+			'width': {{carousel_config.width}},
+			'name': '{{carousel_config.name}}',
+			'aligment': '{{carousel_config.aligment}}',
+			'change_effect': '{{carousel_config.change_effect}}',
+			'navigation': '{{carousel_config.navigation}}',
+			'sel': '#carousel-{{carousel_config.id}}'
+		}
+		console.log(carousel_config)
+		CarouselPlugin.register(carousel_config)	
+	});
+</script>
+{% endaddtoblock %}
+
+<div class="picture-app-carousel {{carousel_config.name}} picture-app-effect-{{carousel_config.change_effect.lower}}" style="max-width: {{carousel_config.width}}px; min-height: {{carousel_config.height}}px;" id="carousel-{{carousel_config}}">
+	<div class="picture-app-carousel-inner">
+	{% for picture in pictures %}	
+		<div class="carousel-picture-wrapper {% if forloop.first %} carousel-show  {% endif %}">  
+			<div class="carousel-picture">
+				<img = src="{% get_media_prefix %}{{picture.file_name}}"/>
+			</div>	
+			{% if carousel_config.pictures_only %}
+			{% else %}
+				<div class="carousel-description">
+					picture.desc	
+				</div>	
+			{% endif %}
+		</div>
+	{% endfor %}
+	</div>
+</div>
